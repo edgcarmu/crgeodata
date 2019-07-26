@@ -1,0 +1,44 @@
+{
+    "name": "edgcarmu/crgeodata",
+    "description": ":description",
+    "license": "license",
+    "authors": [
+        {
+            "name": "author name",
+            "email": "author email",
+            "homepage": "author homepage"
+        }
+    ],
+    "homepage": "https://github.com/edgcarmu/crgeodata",
+    "keywords": ["Laravel", "crgeodata"],
+    "require": {
+        "illuminate/support": "~5",
+        "backpack/crud": "^3.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~7.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "~3.0",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "edgcarmu\\crgeodata\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "edgcarmu\\crgeodata\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "edgcarmu\\crgeodata\\crgeodataServiceProvider"
+            ],
+            "aliases": {
+                "crgeodata": "edgcarmu\\crgeodata\\Facades\\crgeodata"
+            }
+        }
+    }
+}
