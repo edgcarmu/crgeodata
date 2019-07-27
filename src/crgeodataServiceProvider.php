@@ -30,8 +30,6 @@ class crgeodataServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/crgeodata.php', 'crgeodata');
-
         // Register the service the package provides.
         $this->app->singleton('crgeodata', function ($app) {
             return new crgeodata;
@@ -55,25 +53,10 @@ class crgeodataServiceProvider extends ServiceProvider
      */
     protected function bootForConsole()
     {
-        // Publishing the configuration file.
-//        $this->publishes([
-//            __DIR__.'/../config/crgeodata.php' => config_path('crgeodata.php'),
-//        ], 'crgeodata.config');
-
-        // Publishing the views.
-        /*$this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/edgcarmu'),
-        ], 'crgeodata.views');*/
-
-        // Publishing assets.
-        /*$this->publishes([
-            __DIR__.'/../resources/assets' => public_path('vendor/edgcarmu'),
-        ], 'crgeodata.views');*/
-
         // Publishing the translation files.
-        /*$this->publishes([
-            __DIR__.'/../resources/lang' => resource_path('lang/vendor/edgcarmu'),
-        ], 'crgeodata.views');*/
+        $this->publishes([
+            __DIR__.'/resources/lang' => resource_path('lang/vendor/edgcarmu'),
+        ], 'crgeodata.lang');
 
         // Registering package commands.
         // $this->commands([]);
