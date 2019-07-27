@@ -14,6 +14,8 @@ Route::group([
     'prefix' => config('backpack.base.route_prefix', 'admin'),
     'middleware' => ['web', backpack_middleware()],
 ], function () {
+    Route::get('geodatacr/provincia', 'GeoDataCrController@provincia_list');
+    Route::get('geodatacr/provincia/{id}', 'GeoDataCrController@provincia_show');
     Route::get('geodatacr/canton', 'GeoDataCrController@canton_list');
     Route::get('geodatacr/canton/{id}', 'GeoDataCrController@canton_show');
     Route::get('geodatacr/distrito', 'GeoDataCrController@distrito_list');

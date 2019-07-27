@@ -7,10 +7,26 @@ use App\Http\Controllers\Controller;
 use Edgcarmu\Crgeodata\app\Models\Barrio;
 use Edgcarmu\Crgeodata\app\Models\Canton;
 use Edgcarmu\Crgeodata\app\Models\Distrito;
+use Edgcarmu\Crgeodata\app\Models\Provincia;
 use Illuminate\Http\Request;
 
 class GeoDataCrController extends Controller
 {
+    public function provincia_list(Request $request)
+    {
+        $search_term = $request->input('q');
+
+        $options = Provincia::query();
+
+        if ($search_term) {
+            $results = $options->where('name', 'LIKE', '%' . $search_term . '%')->paginate(10);
+        } else {
+            $results = $options->paginate(10);
+        }
+
+        return $results;
+    }
+
     public function canton_list(Request $request)
     {
         $search_term = $request->input('q');
