@@ -13,6 +13,6 @@ class Barrio extends Model
     protected $table = 'geodatacr_barrios';
     protected $primaryKey = 'barrio_id';
     public $timestamps = false;
-    protected $fillable = ["distrito_id", "barrio_id", "tax_id", "name"];
+    protected $fillable = ["barrio_id", "distrito_id", "tax_id", "name"];
 
 }
