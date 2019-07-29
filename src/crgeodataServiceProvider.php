@@ -1,11 +1,17 @@
 <?php
 
-namespace edgcarmu\crgeodata;
+namespace Edgcarmu\Crgeodata;
 
+use Edgcarmu\Crgeodata\app\Console\Commands\Install;
 use Illuminate\Support\ServiceProvider;
 
 class crgeodataServiceProvider extends ServiceProvider
 {
+
+    protected $commands = [
+        Install::class,
+    ];
+
     /**
      * Perform post-registration booting of services.
      *
@@ -13,14 +19,16 @@ class crgeodataServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-         $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'edgcarmu');
-         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
-         $this->loadRoutesFrom(__DIR__.'/routes.php');
-
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
         }
+
+        $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'edgcarmu');
+        $this->loadRoutesFrom(__DIR__.'/routes.php');
+
+        // register the artisan commands
+        $this->commands($this->commands);
     }
 
     /**
@@ -53,12 +61,11 @@ class crgeodataServiceProvider extends ServiceProvider
      */
     protected function bootForConsole()
     {
-        // Publishing the translation files.
-        $this->publishes([
-            __DIR__.'/resources/lang' => resource_path('lang/vendor/edgcarmu'),
-        ], 'crgeodata.lang');
+        // publish the migrations and seeds
+        $this->publishes([__DIR__.'/database/migrations/' => database_path('migrations')], 'migrations');
+        $this->publishes([__DIR__.'/database/seeds/' => database_path('seeds')], 'seeds');
 
-        // Registering package commands.
-        // $this->commands([]);
+        // publish translation files
+        $this->publishes([__DIR__.'/resources/lang' => resource_path('lang/vendor/edgcarmu')], 'lang');
     }
 }

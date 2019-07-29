@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Edgcarmu\Crgeodata\app\Http\Controllers;
 
 use App\Http\Controllers\Controller;
