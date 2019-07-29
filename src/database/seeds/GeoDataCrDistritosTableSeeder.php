@@ -2,8 +2,8 @@
 
 namespace Edgcarmu\Crgeodata\database\seeds;
 
-use Edgcarmu\Crgeodata\app\Models\Distrito;
 use Illuminate\Database\Seeder;
+use Edgcarmu\Crgeodata\app\Models\Distrito;
 
 class GeoDataCrDistritosTableSeeder extends Seeder
 {
@@ -497,7 +497,5 @@ class GeoDataCrDistritosTableSeeder extends Seeder
         Distrito::updateOrCreate(['distrito_id' => 70603, 'canton_id' => 706, 'tax_id' => 3, 'name' => 'POCORA']);
         Distrito::updateOrCreate(['distrito_id' => 70604, 'canton_id' => 706, 'tax_id' => 4, 'name' => 'RIO JIMENEZ']);
         Distrito::updateOrCreate(['distrito_id' => 70605, 'canton_id' => 706, 'tax_id' => 5, 'name' => 'DUCARI']);
-
     }
-
 }

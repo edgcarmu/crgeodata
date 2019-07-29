@@ -2,12 +2,12 @@
 
 namespace Edgcarmu\Crgeodata\app\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Edgcarmu\Crgeodata\app\Models\Barrio;
 use Edgcarmu\Crgeodata\app\Models\Canton;
 use Edgcarmu\Crgeodata\app\Models\Distrito;
 use Edgcarmu\Crgeodata\app\Models\Provincia;
-use Illuminate\Http\Request;
 
 class GeoDataCrController extends Controller
 {
@@ -18,7 +18,7 @@ class GeoDataCrController extends Controller
         $options = Provincia::query();
 
         if ($search_term) {
-            $results = $options->where('name', 'LIKE', '%' . $search_term . '%')->paginate(10);
+            $results = $options->where('name', 'LIKE', '%'.$search_term.'%')->paginate(10);
         } else {
             $results = $options->paginate(10);
         }
@@ -33,7 +33,7 @@ class GeoDataCrController extends Controller
 
         $options = Canton::query();
 
-        if (!$form['provincia_id']) {
+        if (! $form['provincia_id']) {
             return [];
         }
 
@@ -42,7 +42,7 @@ class GeoDataCrController extends Controller
         }
 
         if ($search_term) {
-            $results = $options->where('name', 'LIKE', '%' . $search_term . '%')->paginate(10);
+            $results = $options->where('name', 'LIKE', '%'.$search_term.'%')->paginate(10);
         } else {
             $results = $options->paginate(10);
         }
@@ -62,7 +62,7 @@ class GeoDataCrController extends Controller
 
         $options = Distrito::query();
 
-        if (!$form['canton_id']) {
+        if (! $form['canton_id']) {
             return [];
         }
 
@@ -71,7 +71,7 @@ class GeoDataCrController extends Controller
         }
 
         if ($search_term) {
-            $results = $options->where('name', 'LIKE', '%' . $search_term . '%')->paginate(10);
+            $results = $options->where('name', 'LIKE', '%'.$search_term.'%')->paginate(10);
         } else {
             $results = $options->paginate(10);
         }
@@ -91,7 +91,7 @@ class GeoDataCrController extends Controller
 
         $options = Barrio::query();
 
-        if (!$form['distrito_id']) {
+        if (! $form['distrito_id']) {
             return [];
         }
 
@@ -100,7 +100,7 @@ class GeoDataCrController extends Controller
         }
 
         if ($search_term) {
-            $results = $options->where('name', 'LIKE', '%' . $search_term . '%')->paginate(10);
+            $results = $options->where('name', 'LIKE', '%'.$search_term.'%')->paginate(10);
         } else {
             $results = $options->paginate(10);
         }

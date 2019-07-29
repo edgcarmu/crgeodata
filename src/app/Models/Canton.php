@@ -12,6 +12,5 @@ class Canton extends Model
     protected $table = 'geodatacr_cantones';
     protected $primaryKey = 'canton_id';
     public $timestamps = false;
-    protected $fillable = ["canton_id", "provincia_id", "tax_id", "name"];
-
+    protected $fillable = ['canton_id', 'provincia_id', 'tax_id', 'name'];
 }
