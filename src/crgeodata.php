@@ -1,6 +1,6 @@
 <?php
 
-namespace edgcarmu\crgeodata;
+namespace Edgcarmu\Crgeodata;
 
 class crgeodata
 {

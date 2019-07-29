@@ -2,16 +2,14 @@
 
 namespace Edgcarmu\Crgeodata;
 
-use Edgcarmu\Crgeodata\app\Console\Commands\Install;
-use Edgcarmu\Crgeodata\app\Console\Commands\Seed;
 use Illuminate\Support\ServiceProvider;
 
 class crgeodataServiceProvider extends ServiceProvider
 {
 
     protected $commands = [
-        Install::class,
-        Seed::class,
+        \Edgcarmu\Crgeodata\app\Console\Commands\Install::class,
+        \Edgcarmu\Crgeodata\app\Console\Commands\Seed::class,
     ];
 
     /**
