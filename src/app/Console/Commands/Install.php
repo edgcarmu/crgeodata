@@ -43,7 +43,7 @@ class Install extends Command
      */
     public function handle()
     {
-        $this->progressBar = $this->output->createProgressBar(6);
+        $this->progressBar = $this->output->createProgressBar(4);
         $this->progressBar->start();
 
         $this->info("Bamboo\CRGeoData installation started. Please wait...");
@@ -55,15 +55,6 @@ class Install extends Command
         $this->line(' Publishing migrations Files');
         $this->executeProcess('php artisan vendor:publish --provider="Edgcarmu\Crgeodata\crgeodataServiceProvider" --tag=migrations');
 
-        $this->line(' Publishing seeds Files');
-        $this->executeProcess('php artisan vendor:publish --provider="Edgcarmu\Crgeodata\crgeodataServiceProvider" --tag=seeds');
-
-        $this->line(" Generating Crgeodata tables");
-        $this->executeProcess('php artisan migrate');
-
-
-        $this->line("Seed Crgeodata tables");
-        $this->executeProcess('php artisan db:seed --class="Edgcarmu\Crgeodata\database\seeds\GeoDataCrTableSeeder"');
 
         $this->progressBar->finish();
         $this->info(" edgcarmu\crgeodata installation finished.");

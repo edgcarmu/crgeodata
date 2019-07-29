@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Edgcarmu\Crgeodata\database\seeds;
 
 use Edgcarmu\Crgeodata\app\Models\GeoDataCR;
