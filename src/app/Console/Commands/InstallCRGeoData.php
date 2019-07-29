@@ -43,17 +43,14 @@ class InstallCRGeoData extends Command
      */
     public function handle()
     {
-        $this->progressBar = $this->output->createProgressBar(4);
+        $this->progressBar = $this->output->createProgressBar(3);
         $this->progressBar->start();
 
         $this->info("Bamboo\CRGeoData installation started. Please wait...");
         $this->progressBar->advance();
 
         $this->line(' Publishing lang Files');
-        $this->executeProcess('php artisan vendor:publish --provider="Edgcarmu\Crgeodata\crgeodataServiceProvider" --tag=lang');
-
-        $this->line(' Publishing migrations Files');
-        $this->executeProcess('php artisan vendor:publish --provider="Edgcarmu\Crgeodata\crgeodataServiceProvider" --tag=migrations');
+        $this->executeProcess('php artisan vendor:publish --provider="Edgcarmu\Crgeodata\CrgeodataServiceProvider" --tag=lang');
 
         $this->progressBar->finish();
         $this->info(" edgcarmu\crgeodata installation finished.");

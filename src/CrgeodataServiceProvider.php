@@ -25,6 +25,7 @@ class CrgeodataServiceProvider extends ServiceProvider
             $this->bootForConsole();
         }
 
+        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
         $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'edgcarmu');
         $this->loadRoutesFrom(__DIR__.'/routes.php');
 
