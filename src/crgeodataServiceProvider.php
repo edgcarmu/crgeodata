@@ -8,7 +8,7 @@ class crgeodataServiceProvider extends ServiceProvider
 {
 
     protected $commands = [
-        \Edgcarmu\Crgeodata\app\Console\Commands\Install::class,
+        \Edgcarmu\Crgeodata\app\Console\Commands\InstallCRGeoData::class,
         \Edgcarmu\Crgeodata\app\Console\Commands\Seed::class,
     ];
 
