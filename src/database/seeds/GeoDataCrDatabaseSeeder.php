@@ -6,7 +6,6 @@ use Illuminate\Database\Seeder;
 
 class GeoDataCrDatabaseSeeder extends Seeder
 {
-
     /**
      * Run the database seeds.
      *
@@ -20,5 +19,4 @@ class GeoDataCrDatabaseSeeder extends Seeder
         $this->call(GeoDataCrDistritosTableSeeder::class);
         $this->call(GeoDataCrBarriosTableSeeder::class);
     }
-
 }

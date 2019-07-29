@@ -3,8 +3,8 @@
 namespace Edgcarmu\Crgeodata\app\Console\Commands;
 
 use Illuminate\Console\Command;
-use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class InstallCRGeoData extends Command
 {
@@ -55,7 +55,6 @@ class InstallCRGeoData extends Command
         $this->line(' Publishing migrations Files');
         $this->executeProcess('php artisan vendor:publish --provider="Edgcarmu\Crgeodata\crgeodataServiceProvider" --tag=migrations');
 
-
         $this->progressBar->finish();
         $this->info(" edgcarmu\crgeodata installation finished.");
     }
@@ -71,7 +70,7 @@ class InstallCRGeoData extends Command
      */
     public function executeProcess($command, $beforeNotice = false, $afterNotice = false)
     {
-        $this->echo('info', $beforeNotice ? ' ' . $beforeNotice : $command);
+        $this->echo('info', $beforeNotice ? ' '.$beforeNotice : $command);
         $process = new Process($command, null, null, null, $this->option('timeout'), null);
         $process->run(function ($type, $buffer) {
             if (Process::ERR === $type) {
@@ -81,7 +80,7 @@ class InstallCRGeoData extends Command
             }
         });
         // executes after the command finishes
-        if (!$process->isSuccessful()) {
+        if (! $process->isSuccessful()) {
             throw new ProcessFailedException($process);
         }
         if ($this->progressBar) {
@@ -108,5 +107,4 @@ class InstallCRGeoData extends Command
             $this->{$type}($content);
         }
     }
-
 }

@@ -12,6 +12,5 @@ class Provincia extends Model
     protected $table = 'geodatacr_provincias';
     public $timestamps = false;
     protected $primaryKey = 'provincia_id';
-    protected $fillable = ["provincia_id", "tax_id", "name"];
-
+    protected $fillable = ['provincia_id', 'tax_id', 'name'];
 }

@@ -2,8 +2,8 @@
 
 namespace Edgcarmu\Crgeodata\database\seeds;
 
-use Edgcarmu\Crgeodata\app\Models\Canton;
 use Illuminate\Database\Seeder;
+use Edgcarmu\Crgeodata\app\Models\Canton;
 
 class GeoDataCrCantonesTableSeeder extends Seeder
 {
@@ -97,5 +97,4 @@ class GeoDataCrCantonesTableSeeder extends Seeder
         Canton::updateOrCreate(['canton_id' => 705, 'provincia_id' => 7, 'tax_id' => 5, 'name' => 'MATINA']);
         Canton::updateOrCreate(['canton_id' => 706, 'provincia_id' => 7, 'tax_id' => 6, 'name' => 'GUACIMO']);
     }
-
 }
