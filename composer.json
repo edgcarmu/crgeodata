@@ -23,22 +23,19 @@
     },
     "autoload": {
         "psr-4": {
-            "edgcarmu\\crgeodata\\": "src/"
+            "Edgcarmu\\Crgeodata\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "edgcarmu\\crgeodata\\Tests\\": "tests"
+            "Edgcarmu\\Crgeodata\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "edgcarmu\\crgeodata\\crgeodataServiceProvider"
-            ],
-            "aliases": {
-                "crgeodata": "edgcarmu\\crgeodata\\Facades\\crgeodata"
-            }
+                "Edgcarmu\\Crgeodata\\CrgeodataServiceProvider"
+            ]
         }
     }
 }
