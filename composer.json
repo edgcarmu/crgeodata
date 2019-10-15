@@ -4,15 +4,15 @@
     "license": "license",
     "authors": [
         {
-            "name": "author name",
-            "email": "author email",
-            "homepage": "author homepage"
+            "name": "Fabian Carvajal",
+            "email": "fcarvajal@bamboo.cr",
+            "homepage": "https:bamboo.cr"
         }
     ],
     "homepage": "https://github.com/edgcarmu/crgeodata",
     "keywords": ["Laravel", "crgeodata"],
     "require": {
-        "illuminate/support": "~5",
+        "laravel/framework": "5.8.*|^6.0",
         "backpack/crud": "^3.4.0"
     },
     "require-dev": {
