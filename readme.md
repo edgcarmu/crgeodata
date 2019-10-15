@@ -183,6 +183,12 @@ $this->crud->addField([
 ]);
 ```
 
+## Develop
+
+``` bash
+$ composer require jeroen-g/laravel-packager --dev
+$ php artisan packager:git https://github.com/edgcarmu/crgeodata
+```
 
 ## Change log
 
