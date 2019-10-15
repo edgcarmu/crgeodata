@@ -7,10 +7,145 @@ This is where your description should go. Take a look at [contributing.md](contr
 Via Composer
 
 ``` bash
+$ composer config repositories.repo-name vcs https://github.com/edgcarmu/crgeodata
 $ composer require edgcarmu/crgeodata
 ```
 
 ## Usage
+Add to DatabaseSeeder.php
+
+```
+public function run()
+{
+    ...
+    $this->call(\Edgcarmu\Crgeodata\app\Http\Controllers\GeoDataCrController::class);
+    ...
+}
+```
+
+Add to Model which will save address location data
+```
+/*
+ |--------------------------------------------------------------------------
+ | RELATIONS
+ |--------------------------------------------------------------------------
+*/
+
+function provincia()
+{
+    return $this->belongsTo(Provincia::class, 'provincia_id', 'provincia_id');
+}
+
+function canton()
+{
+    return $this->belongsTo(Canton::class, 'canton_id', 'canton_id');
+}
+
+function distrito()
+{
+    return $this->belongsTo(Distrito::class, 'distrito_id', 'distrito_id');
+}
+
+function barrio()
+{
+    return $this->belongsTo(Barrio::class, 'barrio_id', 'barrio_id');
+}
+```
+
+
+BACKPACK CRUD
+
+COLUMNS
+```
+$this->crud->addColumn([
+    'label' => trans('edgcarmu::crgeodata.provincia.field'),
+    'type' => "select",
+    'name' => "provincia_id",
+    'entity' => 'provincia',
+    'attribute' => "name",
+    'model' => Provincia::class,
+]);
+
+$this->crud->addColumn([
+    'label' => trans('edgcarmu::crgeodata.canton.field'),
+    'type' => "select",
+    'name' => "canton_id",
+    'entity' => 'canton',
+    'attribute' => "name",
+    'model' => Canton::class,
+]);
+
+$this->crud->addColumn([
+    'label' => trans('edgcarmu::crgeodata.distrito.field'),
+    'type' => "select",
+    'name' => "distrito_id",
+    'entity' => 'distrito',
+    'attribute' => "name",
+    'model' => Distrito::class,
+]);
+
+$this->crud->addColumn([
+    'label' => trans('edgcarmu::crgeodata.barrio.field'),
+    'type' => "select",
+    'name' => "barrio_id",
+    'entity' => 'barrio',
+    'attribute' => "name",
+    'model' => Barrio::class,
+]);
+```
+FIELDS
+```
+$this->crud->addField([
+    'label' => trans('edgcarmu::crgeodata.provincia.field'),
+    'type' => "select2_from_ajax",
+    'name' => 'provincia_id', // the column that contains the ID of that connected entity
+    'entity' => 'provincia', // the method that defines the relationship in your Model
+    'attribute' => "name", // foreign key attribute that is shown to user
+    'data_source' => url("api/internal/provincia"), // url to controller search function (with /{id} should return model)
+    'placeholder' => trans('edgcarmu::crgeodata.provincia.placeholder'), // placeholder for the select
+    'minimum_input_length' => 0, // minimum characters to type before querying results
+]);
+
+$this->crud->addField([
+    'label' => trans('edgcarmu::crgeodata.canton.field'),
+    'type' => "select2_from_ajax",
+    'name' => 'canton_id', // the column that contains the ID of that connected entity
+    'entity' => 'canton', // the method that defines the relationship in your Model
+    'attribute' => "name", // foreign key attribute that is shown to user
+    'data_source' => url("api/internal/canton"), // url to controller search function (with /{id} should return model)
+    'placeholder' => trans('edgcarmu::crgeodata.canton.placeholder'), // placeholder for the select
+    'minimum_input_length' => 0, // minimum characters to type before querying results
+    'dependencies' => ['provincia_id'], // when a dependency changes, this select2 is reset to null
+    'method' => 'GET', // optional - HTTP method to use for the AJAX call (GET, POST)
+]);
+
+$this->crud->addField([
+    'label' => trans('edgcarmu::crgeodata.distrito.field'),
+    'type' => "select2_from_ajax",
+    'name' => 'distrito_id', // the column that contains the ID of that connected entity
+    'entity' => 'distrito', // the method that defines the relationship in your Model
+    'attribute' => "name", // foreign key attribute that is shown to user
+    'data_source' => url("api/internal/distrito"), // url to controller search function (with /{id} should return model)
+    'placeholder' => trans('edgcarmu::crgeodata.distrito.placeholder'), // placeholder for the select
+    'minimum_input_length' => 0, // minimum characters to type before querying results
+    'dependencies' => ['canton_id'], // when a dependency changes, this select2 is reset to null
+    'method' => 'GET', // optional - HTTP method to use for the AJAX call (GET, POST)
+]);
+
+$this->crud->addField([
+    'label' => trans('edgcarmu::crgeodata.barrio.field'),
+    'type' => "select2_from_ajax",
+    'name' => 'barrio_id', // the column that contains the ID of that connected entity
+    'entity' => 'barrio', // the method that defines the relationship in your Model
+    'attribute' => "name", // foreign key attribute that is shown to user
+    'data_source' => url("api/internal/barrio"), // url to controller search function (with /{id} should return model)
+    'placeholder' => trans('edgcarmu::crgeodata.barrio.placeholder'), // placeholder for the select
+    'minimum_input_length' => 0, // minimum characters to type before querying results
+    'dependencies' => ['distrito_id'], // when a dependency changes, this select2 is reset to null
+    'method' => 'GET', // optional - HTTP method to use for the AJAX call (GET, POST)
+]);
+```
+
 
 ## Change log
 
