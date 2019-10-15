@@ -13,7 +13,6 @@ class GeoDataCrDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(GeoDataCrTableSeeder::class);
         $this->call(GeoDataCrProvinciasTableSeeder::class);
         $this->call(GeoDataCrCantonesTableSeeder::class);
         $this->call(GeoDataCrDistritosTableSeeder::class);

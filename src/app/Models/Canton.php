@@ -2,7 +2,7 @@
 
 namespace Edgcarmu\Crgeodata\app\Models;
 
-use Backpack\CRUD\CrudTrait;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Canton extends Model
