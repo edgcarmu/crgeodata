@@ -15,16 +15,46 @@ $ composer require edgcarmu/crgeodata
 Add to DatabaseSeeder.php
 
 ```
+use Edgcarmu\Crgeodata\database\seeds\GeoDataCrDatabaseSeeder;
+
+....
+
 public function run()
 {
     ...
-    $this->call(\Edgcarmu\Crgeodata\app\Http\Controllers\GeoDataCrController::class);
+    $this->call(GeoDataCrDatabaseSeeder::class);
     ...
 }
 ```
 
+Migration Model fields
+
+```
+$table->bigInteger('provincia_id')->unsigned()->nullable();
+$table->bigInteger('canton_id')->unsigned()->nullable();
+$table->bigInteger('distrito_id')->unsigned()->nullable();
+$table->bigInteger('barrio_id')->unsigned()->nullable();
+
+$table->foreign('provincia_id')->references('provincia_id')->on('geodatacr_provincias');
+$table->foreign('canton_id')->references('canton_id')->on('geodatacr_cantones');
+$table->foreign('distrito_id')->references('distrito_id')->on('geodatacr_distritos');
+$table->foreign('barrio_id')->references('barrio_id')->on('geodatacr_barrios');        
+```
+
+Remember run the migrations
+
+``` bash
+$ php artisan migrate
+```
+
+
 Add to Model which will save address location data
 ```
+use Edgcarmu\Crgeodata\app\Models\Barrio;
+use Edgcarmu\Crgeodata\app\Models\Canton;
+use Edgcarmu\Crgeodata\app\Models\Distrito;
+use Edgcarmu\Crgeodata\app\Models\Provincia;
+
 /*
  |--------------------------------------------------------------------------
  | RELATIONS
@@ -54,6 +84,13 @@ function barrio()
 
 
 BACKPACK CRUD
+
+```
+use Edgcarmu\Crgeodata\app\Models\Barrio;
+use Edgcarmu\Crgeodata\app\Models\Canton;
+use Edgcarmu\Crgeodata\app\Models\Distrito;
+use Edgcarmu\Crgeodata\app\Models\Provincia;
+```
 
 COLUMNS
 ```
