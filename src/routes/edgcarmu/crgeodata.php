@@ -5,7 +5,7 @@ Route::group([
     'prefix' => 'api/internal',
 ], function () { // custom admin routes
     Route::get('provincia', 'GeoDataCrController@provincia_list');
-    Route::get('provincia/{id}', 'GeoDataCrControllerr@provincia_show');
+    Route::get('provincia/{id}', 'GeoDataCrController@provincia_show');
 
     Route::get('canton', 'GeoDataCrController@canton_list');
     Route::get('canton/{id}', 'GeoDataCrController@canton_show');
