@@ -152,6 +152,7 @@ $this->crud->addField([
     'data_source' => url("api/internal/canton"), // url to controller search function (with /{id} should return model)
     'placeholder' => trans('edgcarmu::crgeodata.canton.placeholder'), // placeholder for the select
     'minimum_input_length' => 0, // minimum characters to type before querying results
+    'include_all_form_fields' =>   true,
     'dependencies' => ['provincia_id'], // when a dependency changes, this select2 is reset to null
     'method' => 'GET', // optional - HTTP method to use for the AJAX call (GET, POST)
 ]);
@@ -165,6 +166,7 @@ $this->crud->addField([
     'data_source' => url("api/internal/distrito"), // url to controller search function (with /{id} should return model)
     'placeholder' => trans('edgcarmu::crgeodata.distrito.placeholder'), // placeholder for the select
     'minimum_input_length' => 0, // minimum characters to type before querying results
+    'include_all_form_fields' =>   true,
     'dependencies' => ['canton_id'], // when a dependency changes, this select2 is reset to null
     'method' => 'GET', // optional - HTTP method to use for the AJAX call (GET, POST)
 ]);
@@ -178,6 +180,7 @@ $this->crud->addField([
     'data_source' => url("api/internal/barrio"), // url to controller search function (with /{id} should return model)
     'placeholder' => trans('edgcarmu::crgeodata.barrio.placeholder'), // placeholder for the select
     'minimum_input_length' => 0, // minimum characters to type before querying results
+    'include_all_form_fields' =>   true,
     'dependencies' => ['distrito_id'], // when a dependency changes, this select2 is reset to null
     'method' => 'GET', // optional - HTTP method to use for the AJAX call (GET, POST)
 ]);
