@@ -2,10 +2,10 @@
 
 namespace Edgcarmu\Crgeodata;
 
+use Edgcarmu\Crgeodata\app\Console\Commands\InstallCRGeoData;
+use Edgcarmu\Crgeodata\app\Console\Commands\Seed;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
-use Edgcarmu\Crgeodata\app\Console\Commands\Seed;
-use Edgcarmu\Crgeodata\app\Console\Commands\InstallCRGeoData;
 
 class CrgeodataServiceProvider extends ServiceProvider
 {
@@ -85,8 +85,7 @@ class CrgeodataServiceProvider extends ServiceProvider
     /**
      * Define the routes for the application.
      *
-     * @param \Illuminate\Routing\Router $router
-     *
+     * @param  \Illuminate\Routing\Router  $router
      * @return void
      */
     public function setupRoutes(Router $router)

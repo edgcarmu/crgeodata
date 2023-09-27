@@ -2,8 +2,8 @@
 
 namespace Edgcarmu\Crgeodata\database\seeds;
 
-use Illuminate\Database\Seeder;
 use Edgcarmu\Crgeodata\app\Models\Canton;
+use Illuminate\Database\Seeder;
 
 class GeoDataCrCantonesTableSeeder extends Seeder
 {

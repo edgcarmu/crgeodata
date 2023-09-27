@@ -3,8 +3,8 @@
 namespace Edgcarmu\Crgeodata\app\Console\Commands;
 
 use Illuminate\Console\Command;
-use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
 
 class InstallCRGeoData extends Command
 {
@@ -59,10 +59,9 @@ class InstallCRGeoData extends Command
     /**
      * Run a SSH command.
      *
-     * @param string $command The SSH command that needs to be run
-     * @param bool $beforeNotice Information for the user before the command is run
-     * @param bool $afterNotice Information for the user after the command is run
-     *
+     * @param  string  $command  The SSH command that needs to be run
+     * @param  bool  $beforeNotice  Information for the user before the command is run
+     * @param  bool  $afterNotice  Information for the user after the command is run
      * @return mixed Command-line output
      */
     public function executeProcess($command, $beforeNotice = false, $afterNotice = false)
