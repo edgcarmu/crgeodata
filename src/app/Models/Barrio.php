@@ -2,8 +2,8 @@
 
 namespace Edgcarmu\Crgeodata\app\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Illuminate\Database\Eloquent\Model;
 
 class Barrio extends Model
 {

@@ -2,12 +2,12 @@
 
 namespace Edgcarmu\Crgeodata\app\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Edgcarmu\Crgeodata\app\Models\Barrio;
 use Edgcarmu\Crgeodata\app\Models\Canton;
 use Edgcarmu\Crgeodata\app\Models\Distrito;
 use Edgcarmu\Crgeodata\app\Models\Provincia;
+use Illuminate\Http\Request;
 
 class GeoDataCrController extends Controller
 {

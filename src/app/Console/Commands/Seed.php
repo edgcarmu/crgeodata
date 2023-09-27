@@ -2,12 +2,12 @@
 
 namespace Edgcarmu\Crgeodata\app\Console\Commands;
 
-use Illuminate\Console\Command;
 use Edgcarmu\Crgeodata\app\Models\Barrio;
 use Edgcarmu\Crgeodata\app\Models\Canton;
 use Edgcarmu\Crgeodata\app\Models\Distrito;
 use Edgcarmu\Crgeodata\app\Models\GeoDataCR;
 use Edgcarmu\Crgeodata\app\Models\Provincia;
+use Illuminate\Console\Command;
 
 class Seed extends Command
 {

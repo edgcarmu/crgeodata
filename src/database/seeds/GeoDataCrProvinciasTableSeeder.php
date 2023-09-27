@@ -2,8 +2,8 @@
 
 namespace Edgcarmu\Crgeodata\database\seeds;
 
-use Illuminate\Database\Seeder;
 use Edgcarmu\Crgeodata\app\Models\Provincia;
+use Illuminate\Database\Seeder;
 
 class GeoDataCrProvinciasTableSeeder extends Seeder
 {
